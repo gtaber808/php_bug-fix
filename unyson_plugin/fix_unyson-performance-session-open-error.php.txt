@@ -1,0 +1,5 @@
+<!-- Addin the following code to the unyson.php file in WordPress corrects a serious performance issue where a session is read as open when it is truly not, this command closes it if you insert the code at line 14 of the plugins unyson.php file - REFERENCE: Version 2.7.27 | By ThemeFuse | A free drag & drop framework that comes with a bunch of built in extensions that will help you develop premium themes fast & easy. - Error resolved for Corrao Designs 09/29/2022  -->
+
+if (!isset($_SESSION)) {
+ session_start(['read_and_close' => true]);
+}
